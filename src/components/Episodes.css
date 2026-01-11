@@ -1,0 +1,17 @@
+.episodes-root{ width:100%; min-height:100vh; background: linear-gradient(180deg,#02041a,#0a0412); padding-bottom:80px; color:#e9fff0; font-family:'Orbitron',sans-serif}
+.episodes-wrap{ max-width:1200px; margin:80px auto; padding:22px}
+.episodes-header h1{ font-size:42px; background: linear-gradient(135deg,#00ff88,#00ffff); -webkit-background-clip:text; -webkit-text-fill-color:transparent}
+.episodes-grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap:20px; margin-top:20px}
+.episode-card{ background: rgba(255,255,255,0.02); border-radius:12px; overflow:hidden; border:1px solid rgba(0,255,136,0.04); box-shadow: 0 20px 60px rgba(0,0,0,0.6)}
+.episode-thumb{ position:relative; height:180px; background-size:cover; background-position:center}
+.episode-thumb::after{ content:'▶'; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); font-size:48px; color:rgba(0,255,136,0.9); text-shadow:0 8px 30px rgba(0,0,0,0.6)}
+.episode-body{ padding:14px}
+.episode-body h3{ margin:0 0 6px 0}
+.episode-body p{ color:#cfeee0; margin:0 0 8px 0}
+.episode-links a{ display:inline-block; margin-right:8px; padding:8px 10px; background: linear-gradient(135deg,#00ff88,#00ffff); color:black; border-radius:8px; font-weight:700}
+@media(max-width:720px){ .episode-thumb{ height:140px }}
+
+@media(max-width:420px){
+	.episodes-grid{ grid-template-columns: 1fr }
+	.episode-thumb{ height:120px }
+}

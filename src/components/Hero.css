@@ -1,0 +1,99 @@
+.hero {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(-45deg, #0a0f2c, #04703d, #000, #1a0a2e);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    perspective: 1000px;
+  }
+
+  /* Animated background orbs */
+  .hero::before,
+  .hero::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    animation: rotateSphere 20s linear infinite;
+  }
+
+  .hero::before {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0, 255, 136, 0.4), transparent);
+    top: -100px;
+    left: -100px;
+  }
+
+  .hero::after {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 0, 255, 0.3), transparent);
+    bottom: -50px;
+    right: -50px;
+    animation-delay: 10s;
+  }
+  
+  .alien-slider {
+    display: flex;
+    gap: 50px;
+    cursor: grab;
+    margin-top: 100px;
+    perspective: 1200px;
+    transform-style: preserve-3d;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .alien-slider:active {
+    cursor: grabbing;
+  }
+  
+  .alien-card {
+    min-width: 300px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1200px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .alien-card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, #00ff88, #00ffff, #ff00ff, #00ff88);
+    background-size: 300% 300%;
+    animation: gradientShift 3s ease infinite;
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .alien-card:hover::before {
+    opacity: 0.5;
+  }
+  
+  .alien-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.3));
+  }
+  
+  .alien-card:hover img {
+    transform: scale(1.15) rotateY(15deg) rotateX(-10deg);
+    filter: drop-shadow(0 0 40px rgba(0, 255, 136, 0.8)), drop-shadow(0 0 60px rgba(255, 0, 255, 0.4));
+  }
+  

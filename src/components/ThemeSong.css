@@ -1,0 +1,47 @@
+.theme-root{ width:100%; min-height:100vh; background: linear-gradient(-45deg,#0a0f2c,#001218,#1a0a2e); background-size:400% 400%; animation: gradientShift 15s ease infinite; color:#e9fff0; font-family:'Orbitron',sans-serif; padding-bottom:60px }
+.theme-wrap{ max-width:1200px; margin:80px auto; padding:30px }
+.theme-header{ text-align:center; margin-bottom:40px }
+.theme-header h1{ font-size:48px; background: linear-gradient(135deg,#00ff88,#00ffff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:12px; text-shadow: 0 0 30px rgba(0,255,136,0.3) }
+.theme-header p{ color:#bfeee0; font-size:18px }
+
+.theme-container{ display:flex; gap:32px; margin-top:40px; flex-wrap:wrap; justify-content:center }
+.player-wrapper{ flex:1; min-width:300px; max-width:500px }
+.player-box{ background: linear-gradient(135deg, rgba(0,255,136,0.08), rgba(0,255,255,0.04)); border-radius:20px; padding:32px; border:2px solid rgba(0,255,136,0.12); box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 40px rgba(0,255,136,0.08); position:relative; overflow:hidden; backdrop-filter:blur(8px) }
+
+.player-box::before{ content:''; position:absolute; inset:-100%; background: radial-gradient(circle at 30% 30%, rgba(0,255,136,0.06), transparent 40%), radial-gradient(circle at 70% 70%, rgba(0,255,255,0.04), transparent 40%); animation: rotateSphere 6s linear infinite; z-index:0 }
+.player-box *{ position:relative; z-index:1 }
+
+.visualizer{ display:flex; gap:8px; justify-content:center; align-items:flex-end; height:100px; margin-bottom:24px; padding:12px; background: rgba(0,0,0,0.25); border-radius:12px }
+.bar{ width:8px; background: linear-gradient(180deg,#00ff88,#00ffff); border-radius:4px; min-height:20px; box-shadow: 0 0 20px rgba(0,255,136,0.6) }
+
+.player-controls{ display:flex; flex-direction:column; gap:16px }
+.play-btn{ padding:14px 28px; background: linear-gradient(135deg,#00ff88,#00ffff); border:none; border-radius:14px; color:black; font-weight:800; cursor:pointer; font-size:16px; transition: all 0.3s; box-shadow: 0 0 30px rgba(0,255,136,0.4) }
+.play-btn:hover{ transform: scale(1.05); box-shadow: 0 0 50px rgba(0,255,136,0.8), 0 0 80px rgba(255,0,255,0.4) }
+
+.progress-bar{ width:100%; height:6px; border-radius:3px; background: rgba(255,255,255,0.08); outline:none; -webkit-appearance:none; appearance:none; cursor:pointer }
+.progress-bar::-webkit-slider-thumb{ -webkit-appearance:none; appearance:none; width:16px; height:16px; border-radius:50%; background: linear-gradient(135deg,#00ff88,#00ffff); box-shadow: 0 0 15px rgba(0,255,136,0.8); cursor:pointer }
+.progress-bar::-moz-range-thumb{ width:16px; height:16px; border-radius:50%; background: linear-gradient(135deg,#00ff88,#00ffff); border:none; box-shadow: 0 0 15px rgba(0,255,136,0.8); cursor:pointer }
+
+.glow-effect{ position:absolute; inset:0; background: radial-gradient(circle at 50% 50%, rgba(0,255,136,0.1), transparent 70%); animation: pulse 3s ease-in-out infinite }
+
+.youtube-embed{ flex:1; min-width:300px; max-width:500px; background: rgba(0,0,0,0.45); padding:20px; border-radius:16px; border:1px solid rgba(0,255,136,0.06); box-shadow: 0 20px 60px rgba(0,0,0,0.6) }
+.youtube-embed h3{ margin-bottom:12px; color:#00ff88 }
+.youtube-embed iframe{ border-radius:12px }
+.youtube-embed .card-image{ width:80px; height:80px; object-fit:cover; border-radius:12px; margin-bottom:12px; box-shadow: 0 8px 30px rgba(0,0,0,0.6); border:2px solid rgba(0,255,136,0.08) }
+
+.theme-lyrics{ margin-top:60px; background: linear-gradient(135deg, rgba(0,255,136,0.06), rgba(0,255,255,0.03)); padding:32px; border-radius:16px; border:1px solid rgba(0,255,136,0.08); text-align:center }
+.theme-lyrics h2{ font-size:28px; margin-bottom:16px; background: linear-gradient(135deg,#00ffff,#00ff88); -webkit-background-clip:text; -webkit-text-fill-color:transparent }
+.theme-lyrics p{ font-size:16px; color:#cfeee0; line-height:1.8; font-style:italic }
+
+@media(max-width:900px){
+  .theme-container{ gap:20px; flex-direction:column }
+  .player-wrapper, .youtube-embed{ max-width:100% }
+  .theme-header h1{ font-size:36px }
+}
+
+@media(max-width:600px){
+  .theme-wrap{ padding:16px }
+  .theme-header h1{ font-size:28px }
+  .player-box{ padding:20px }
+  .youtube-embed iframe{ height:200px }
+}

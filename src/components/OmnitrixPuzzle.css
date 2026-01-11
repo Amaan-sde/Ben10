@@ -1,0 +1,23 @@
+.puzzle-root { width:100%; min-height:100vh; background: linear-gradient(-45deg,#0a0f2c,#000,#1a0a2e); background-size:400% 400%; animation: gradientShift 12s ease infinite; color:white; font-family: 'Orbitron', sans-serif;}
+.puzzle-container { max-width:1000px; margin:120px auto; padding:30px; backdrop-filter: blur(8px); background: rgba(0,0,0,0.4); border-radius:20px; border: 2px solid rgba(0,255,136,0.08); box-shadow: 0 20px 60px rgba(0,0,0,0.6); }
+.puzzle-header h1{ font-size:42px; background: linear-gradient(135deg,#00ff88,#00ffff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin:0}
+.puzzle-header p{ color:#cfeee0}
+.puzzle-controls{ display:flex; gap:12px; align-items:center; margin-top:12px}
+.btn{ padding:10px 20px; border-radius:12px; cursor:pointer; font-weight:700;}
+.btn.action{ background: linear-gradient(135deg,#00ff88,#00ffff); border:none}
+.btn.back{ background:transparent; border:2px solid rgba(255,255,255,0.08); color:#fff}
+.stats{ margin-left:auto; color:#00ff88}
+
+.puzzle-board{ margin:30px auto; width:560px; height:560px; display:grid; grid-template-columns: repeat(3, 1fr); grid-gap:12px; perspective:1200px; transform-style:preserve-3d}
+.tile{ background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:12px; overflow:hidden; display:flex; align-items:center; justify-content:center; height:180px; transition: transform 0.35s cubic-bezier(.2,1,.2,1), box-shadow 0.3s; border:1px solid rgba(255,255,255,0.04);}
+.tile img{ width:85%; height:85%; object-fit:contain; transform: translateZ(30px); transition: transform 0.3s}
+.tile:hover{ transform: translateY(-6px) rotateX(6deg) rotateY(-6deg) translateZ(30px); box-shadow: 0 20px 40px rgba(0,255,136,0.08)}
+.tile.empty{ background: rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.04)}
+.empty-slot{ width:60%; height:60%; border-radius:8px; border:2px dashed rgba(255,255,255,0.06);}
+
+.puzzle-footer{ text-align:center; margin-top:18px}
+.solved-banner{ padding:12px 20px; background: linear-gradient(135deg,#00ff88,#00ffff); color:black; border-radius:12px; display:inline-block; animation: glow 2s infinite}
+.hint{ color:#ddd}
+
+@media(max-width:900px){ .puzzle-board{ width:360px; height:360px } .tile{ height:110px }}
+@media(max-width:420px){ .puzzle-board{ width:280px; height:280px } .tile{ height:86px }}

@@ -1,0 +1,30 @@
+.app-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* prevent fixed navbar from overlapping content */
+.app-container { padding-top: var(--nav-height, 72px); }
+
+/* Animated particles background */
+.particle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle-1 {
+  animation: float 6s ease-in-out infinite;
+}
+
+.particle-2 {
+  animation: float 8s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.particle-3 {
+  animation: float 10s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+/* Decorative floating geoms removed per user request */

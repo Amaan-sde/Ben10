@@ -1,0 +1,183 @@
+.slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: white;
+    font-family: "Orbitron", sans-serif;
+    padding: 0 100px;
+    gap: 0px;
+    position: relative;
+    padding-right: 200px;
+    padding-top: 40px;
+    perspective: 1500px;
+    overflow: hidden;
+  }
+
+  /* Animated background nebula */
+  .slider::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(-45deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+    animation: shimmer 3s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes shimmer {
+    0%, 100% {
+      transform: translateX(-100%);
+    }
+    50% {
+      transform: translateX(100%);
+    }
+  }
+  
+  .slider-images {
+    position: relative;
+    width: 720px;
+    height: 720px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    perspective: 1200px;
+    transform-style: preserve-3d;
+  }
+
+  .slider-images::after {
+    content: '';
+    position: absolute;
+    inset: -100px;
+    border: 2px solid rgba(0, 255, 136, 0.2);
+    border-radius: 50%;
+    animation: rotateSphere 10s linear infinite;
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .alien-img {
+    position: absolute;
+    width: 360px;
+    height: auto;
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.6s ease, filter 0.6s ease;
+    will-change: transform, opacity, filter;
+    filter: drop-shadow(0 0 30px rgba(0, 255, 136, 0.2));
+  }
+
+  .alien-img:hover {
+    filter: drop-shadow(0 0 50px rgba(0, 255, 136, 0.6)) drop-shadow(0 0 80px rgba(255, 0, 255, 0.3));
+  }
+  
+  .slider-info {
+    max-width: 500px;
+    position: relative;
+    z-index: 5;
+  }
+  
+  .slider-info h1 {
+    font-size: 49px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #00ff88, #00ffff, #ff00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: neonFlicker 3s ease-in-out infinite;
+  }
+  
+  .slider-info p {
+    font-size: 18px;
+    line-height: 2.1;
+    color: #ddd;
+    width: 500px;
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+    transition: all 0.4s ease;
+  }
+
+  /* Responsive slider */
+  @media (max-width: 1200px) {
+    .slider { padding: 20px 40px; height: 85vh }
+    .slider-images { width: 700px; height: 700px }
+    .alien-img { width: 360px }
+    .left-arrow { left: calc(50% - 320px) }
+    .right-arrow { left: calc(50% + 320px) }
+    .slider-info h1 { font-size: 38px }
+    .slider-info p { width: 360px }
+  }
+
+  @media (max-width: 768px) {
+    .slider { flex-direction: column; padding: 16px 20px; height: auto }
+    .slider-images { width: 420px; height: 420px; margin-bottom: 20px }
+    .alien-img { width: 260px }
+    .left-arrow { left: 40px; top: auto; bottom: 32px }
+    .right-arrow { right: 40px; left: auto; top: auto; bottom: 32px }
+    .slider-info { max-width: 90%; text-align: center }
+    .slider-info p { width: 100%; line-height: 1.6 }
+  }
+
+  @media (max-width: 420px) {
+    .slider-images { width: 320px; height: 320px }
+    .alien-img { width: 180px }
+    .slider-info h1 { font-size: 28px }
+    .slider-info p { font-size: 14px }
+  }
+
+  .slider-info p:hover {
+    color: #00ff88;
+    text-shadow: 0 0 20px rgba(0, 255, 136, 0.8);
+  }
+  
+  .arrow {
+    position: absolute;
+    top: 90%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(0, 255, 136, 0.4);
+    color: #00ff88;
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 10;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
+  }
+
+  .arrow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 255, 136, 0.1), transparent);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  
+  .arrow:hover {
+    background: rgba(0, 255, 136, 0.2);
+    color: #00ffff;
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.8), inset 0 0 20px rgba(0, 255, 136, 0.3);
+    transform: translateY(-50%) scale(1.15) rotateZ(360deg);
+    border-color: #00ffff;
+  }
+
+  .arrow:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+  
+  .left-arrow {
+    left: 800px;
+  }
+  
+  .right-arrow {
+    left: 900px;
+  }
+
+  .slider-info-wrapper {
+    position: relative;
+    z-index: 5;
+  }
+  
